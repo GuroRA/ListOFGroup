@@ -36,7 +36,14 @@ namespace ListOFGroup
 
             string textStudents = text;
 
-            File.AppendAllText("students.txt", text);
+            if (new FileInfo("students.txt").Length == 0)
+            {
+                File.AppendAllText("students.txt", text);
+            }
+            else 
+            {
+                Console.WriteLine("Файл уже создан в папке bin/Debug/students");
+            }
 
             return textStudents;
         }
