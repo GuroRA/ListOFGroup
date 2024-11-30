@@ -97,8 +97,7 @@ namespace ListOFGroup
   
 
             };
-
-            Console.WriteLine(GetTextFile(students));
+            GetTextFile(students);
             Console.WriteLine("Файл создан в bin/Debug/students.txt");
             Console.ReadKey();
         }
