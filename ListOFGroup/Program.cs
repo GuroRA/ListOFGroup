@@ -34,12 +34,9 @@ namespace ListOFGroup
                 text += $"{students[i]} {randomNumbers[i-1]+1}\n";
             }
 
+            string textStudents = text;
 
-            using FileStream file = new FileStream("students.txt", FileMode.Create);
-            byte[] array = System.Text.Encoding.UTF8.GetBytes(text);
-            file.Read(array, 0, array.Length);
-
-            string textStudents = System.Text.Encoding.UTF8.GetString(array);
+            File.AppendAllText("students.txt", text);
 
             return textStudents;
         }
@@ -97,6 +94,7 @@ namespace ListOFGroup
                 {47, "Шайтутдинова Алина" },
                 {48, "Шакиров Эмиль" },
                 {49, "Шамсутдинов Нурсултан" },
+  
 
             };
 
