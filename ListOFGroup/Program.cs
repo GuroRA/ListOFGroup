@@ -35,8 +35,17 @@ namespace ListOFGroup
             }
 
             string textStudents = text;
+            string path = $"{Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}/students.txt";
+            if (new FileInfo(path).Length == 0)
+            {
+                File.AppendAllText(path, text);
+                Console.WriteLine("Файл заполнен");
+            }
+            else
+            {
+                Console.WriteLine("Файл уже заполнен");
+            }
 
-            File.AppendAllText("students.txt", text);
 
             return textStudents;
         }
@@ -98,7 +107,6 @@ namespace ListOFGroup
 
             };
             GetTextFile(students);
-            Console.WriteLine("Файл создан в bin/Debug/students.txt");
             Console.ReadKey();
         }
     }
